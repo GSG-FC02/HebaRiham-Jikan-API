@@ -21,7 +21,6 @@ fetch(`https://api.jikan.moe/v3/search/anime?q=${y}`)
 
 /* if the api have correct conection this will bring the value in search input and look for it in api then it will create the elements down */
 .then((data) => {
-    console.log(data.results)
         const container = document.createElement('div');
         container.setAttribute('class','anime-container');
         app.appendChild(container);
