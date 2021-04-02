@@ -1,16 +1,30 @@
 
-/* call the container that we will put in it the items and submit button */
-const app = document.getElementById('anime-container');
-const bt = document.getElementById('search-btn');
-bt.addEventListener('click',subbtn);
+/* call the submit button , container that we will put in it the items and create massage with style by js */
+const mainContainer = document.getElementById('anime-container')
+const container = document.querySelector('div');
+const button = document.getElementById('search-btn');
+const massage = document.createElement('h4');
+mainContainer.appendChild(massage);
+massage.innerHTML=' Empty';
+massage.style.marginTop = '30px';
+massage.style.marginLeft = '22.5%';
+massage.style.fontSize = '25px';
+massage.style.backgroundColor = 'rgb(184, 60, 60)';
+massage.style.width = '55%'
+massage.style.textAlign = 'center'
+massage.style.color = 'rgb(206, 204, 204)'
+container.style.display ='none';
 
+button.addEventListener('click',subbtn);
 /* when we click the button it will call the function */
 /* this func fetch the api and check if it have correct connection */
 function subbtn(){
+    massage.style.display = 'none';
+    container.style.display ='flex';
     var val = document.getElementById('search');
-    var y = val.value;
-    console.log(y);
-fetch(`https://api.jikan.moe/v3/search/anime?q=${y}`)
+    var value = val.value;
+    console.log(value);
+fetch(`https://api.jikan.moe/v3/search/anime?q=${value}`)
 .then((response) => {
     if (response.status !== 200){
     console.log(`looks like there is a problem . status code : ${response.status}`)
@@ -21,51 +35,26 @@ fetch(`https://api.jikan.moe/v3/search/anime?q=${y}`)
 
 /* if the api have correct conection this will bring the value in search input and look for it in api then it will create the elements down */
 .then((data) => {
-        const container = document.createElement('div');
-        container.setAttribute('class','anime-container');
-        app.appendChild(container);
-/* here I show just 3 item from the search that the user write becaues the results it's too much to load on the page */
 
-        container.innerHTML = `
-        <div class="anime-items">
-        <a href="${data.results[0].url}" target="_blank"><img src="${data.results[0].image_url}" alt="${data.results[0].title}" class="img-box"></a>
-        <div class="anime-details">
-        <p>Name : ${data.results[0].title} .</p>
-        <p>Episodes : ${data.results[0].episodes} .</p>
-        <p>Type : ${data.results[0].type}. </p>
-        <p>Score : ${data.results[0].score}. </p>
-        <p>Rated : ${data.results[0].rated}. </p>
-        <p>Story: ${data.results[0].synopsis}. </p>
-        </div>
-        </div>
+/* call the non appeare items to change there values and display them on screen with every search and new information the user search for*/
+const link = document.getElementById('link');
+const animeImg=document.getElementById('img-box');
+const name=document.getElementById('item1');
+const episodes=document.getElementById('item2');
+const type=document.getElementById('item3');
+const score= document.getElementById('item4');
+const rated= document.getElementById('item5');
+const story=document.getElementById('item6');
 
-        <div class="anime-items">
-        <a href="${data.results[1].url}" target="_blank"><img src="${data.results[1].image_url}" alt="${data.results[1].title}" class="img-box"></a>
-        <div class="anime-details">
-        <p>Name : ${data.results[1].title} .</p>
-        <p>Episodes : ${data.results[1].episodes} .</p>
-        <p>Type : ${data.results[1].type}. </p>
-        <p>Score : ${data.results[1].score}. </p>
-        <p>Rated : ${data.results[1].rated}. </p>
-        <p>Story: ${data.results[1].synopsis}. </p>
-        </div>
-        </div>
-
-        <div class="anime-items">
-        <a href="${data.results[2].url}" target="_blank"><img src="${data.results[2].image_url}" alt="${data.results[2].title}" class="img-box"></a>
-        <div class="anime-details">
-        <p>Name : ${data.results[2].title} .</p>
-        <p>Episodes : ${data.results[2].episodes} .</p>
-        <p>Type : ${data.results[2].type}. </p>
-        <p>Score : ${data.results[2].score}. </p>
-        <p>Rated : ${data.results[2].rated}. </p>
-        <p>Story: ${data.results[2].synopsis}. </p>
-        </div>
-        </div>
-        
-        `
-        
+    
+    link.href = data.results[0].url;
+    animeImg.src=data.results[0].image_url;
+    name.textContent=` Name: ${data.results[0].title}`;
+    episodes.textContent=` Episodes: ${data.results[0].episodes}`;
+    type.textContent=` Type: ${data.results[0].type}`;
+    score.textContent=` Score: ${data.results[1].score}`;
+    rated.textContent=` Rated: ${data.results[0].rated}`;
+    story.textContent=` Story: ${data.results[0].synopsis}`;
 
 })
-
 }
