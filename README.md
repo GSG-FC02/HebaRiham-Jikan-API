@@ -50,5 +50,3 @@ If you are anime lover this website is for you , you can search any animes you w
 * CSS
 * JavaScript
 
-**Live link:**
- https://gsg-fc02.github.io/HebaRiham-Jikan-API/
