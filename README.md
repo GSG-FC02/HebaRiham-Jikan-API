@@ -1,6 +1,6 @@
 # [Anime List!](https://gsg-fc02.github.io/HebaRiham-Jikan-API/)
 
-#### our app is about searching in jikan API and fetch the anime details, then we render this details.
+#### Our app is about searching in jikan API and fetch the anime details, then we render this details.
 ---
 
 **Team members:**
@@ -26,8 +26,8 @@ If you are anime lover this website is for you , you can search any animes you w
 
 **Journey of our website**
 
-- we decide the api type that we will use in our website.
-- Making Repository: seconed step was prepare the repo on github to create issues to devide the tasks on team members after planing.
+- We decide the api type that we will use in our website.
+- Making Repository: seconed step was prepare the repo on github to create issues and devide the tasks on team members after planing.
 - Planning: We defining general style for our website ( Colors, Fonts, Pictures) and deacide the shape of it.
 - we divided tasks between the team members and make issues.
 - Creating HTML , CSS and Javascript code: We started working on pages and we finished writing codes for all pages.
@@ -49,3 +49,6 @@ If you are anime lover this website is for you , you can search any animes you w
 * HTML
 * CSS
 * JavaScript
+
+**Live link:**
+ https://gsg-fc02.github.io/HebaRiham-Jikan-API/
